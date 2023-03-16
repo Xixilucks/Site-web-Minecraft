@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulaire de contact</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		#connexion-section {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            }
+
+        #connexion-section {
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.5);
+            }
+
+        input[type="text"], input[type="password"], input[type="email"] {
+            border: none;
+            border-bottom: 2px solid #000000;
+            padding: 10px;
+            margin: 10px;
+            background-color: transparent;
+            color: white;
+            }
+        
+        label{
+            color: white;
+            }
+        
+
+        h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: white;
+            }
+        
+        body{
+            background-image: url("fond_login.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Roboto', sans-serif;
+            background-attachment: fixed;
+            color: white;
+            }
+        button {
+            background-color: black;
+            color: white;
+            border-radius: 20px; 
+            padding: 10px 20px; 
+            border: none;
+            }
+
+        button:hover {
+            background-color: white;
+            color: black;
+            border-radius: 20px; 
+            padding: 10px 20px; 
+            border: none;
+            }
+
+        form{
+            text-align: center;
+            align-items: center;
+        }
+
+        p{
+            color: white;
+        }
+
+        a{
+            color: white;
+        }
+
+        input::placeholder{
+            color: white;
+        }
+	</style>
+</head>
+<body>
+	<div id="connexion-section">
+        
+        <form action="traitemet.php" method="get">
+        <fieldset>
+            <h2>Inscription</h2>
+          <input type="text" placeholder="Pseudo"></br></br>
+
+          <input type="email" placeholder="Adresse mail"></br></br>
+          <input type="email" placeholder="Confirmez l'adresse mail"></br></br>
+
+          <input type="password" placeholder="Mot de passe"></br></br>
+          <input type="password" placeholder="Confirmez le mot de passe"></br>
+
+          <label for="remember-me"><input type="checkbox" id="remember-me"> Rester connecté</label></br></br>
+          <button type="submit">S'inscrire</button>
+
+          <p>Vous avez déjà un compte? <a href="login.html">Se connecter</a></p>
+        </fieldset>
+        </form>
+      </div>
+</body>
+</html>
