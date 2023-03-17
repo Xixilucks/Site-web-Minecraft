@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Minecraft';
+  src: url('minecraft_font.ttf') format('truetype');
+}
+
+.ttl{
+  font-family: 'Minecraft';
+}
+
 .navbar {
     position: fixed;
     top: 50%;
@@ -45,8 +54,9 @@
     width: 30px;
     height: 30px;
     transition: 5s;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin: 15px;
   }
   
 

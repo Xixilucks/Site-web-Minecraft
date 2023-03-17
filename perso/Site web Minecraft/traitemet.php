@@ -68,6 +68,7 @@
     <div id="connexion-section">
     <form>
         <fieldset>
+    </br>
             <h2>Erreur 69</h2>
             <p>Veuillez nous excusez de la gène occasionée mais la page est en cours de construction...</p></br></br>
         <a href="Page accueil.html">Retourner à la page d'accueil</a></br></br>
