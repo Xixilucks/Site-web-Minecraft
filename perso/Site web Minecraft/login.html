@@ -47,7 +47,7 @@
             font-family: 'Roboto', sans-serif;
             background-attachment: fixed;
             }
-        button {
+        .button {
             background-color: black;
             color: white;
             border-radius: 20px; 
@@ -55,7 +55,7 @@
             border: none;
             }
 
-        button:hover {
+        .button:hover {
             background-color: white;
             color: black;
             border-radius: 20px; 
@@ -79,9 +79,16 @@
         input::placeholder{
             color: white;
         }
+
+        .b{
+            background-color: transparent;
+            border: none;
+            }
+        
 	</style>
 </head>
 <body>
+    <button onclick="window.location.href='index.html'" class="b"><img src="minecraft_logo.png" width="200px" height="100px"></button>
 	<div id="connexion-section">
         
         <form action="traitemet.php" method="get">
@@ -91,7 +98,7 @@
           <input type="password" placeholder="Mot de passe"></br>
           <label for="remember-me"><input type="checkbox" id="remember-me"> Rester connecté. </label><a href="mdp.html">Mot de passe oublié...</a>
         </br></br></br>
-          <button type="submit">Se connecter</button>
+          <button type="submit" class="button">Se connecter</button>
         </br></br>
           <p>Vous n'avez pas de compte? <a href="signup.html">S'inscrire</a></p>
           
