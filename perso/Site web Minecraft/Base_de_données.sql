@@ -25,5 +25,5 @@ CREATE TABLE jetons_de_reinitialisation (
     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     FOREIGN KEY (utilisateur_id)
-        REFERENCES utilisateurs (id)
+    REFERENCES utilisateurs (id)
 );

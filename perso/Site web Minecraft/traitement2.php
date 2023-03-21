@@ -66,13 +66,44 @@
 </head>
 <body>
     <div id="connexion-section">
-    <form>
-        <fieldset>
-            <h2>Erreur 69</h2>
-            <p>Veuillez nous excusez de la gène occasionée mais la page est en cours de construction...</p></br></br>
-        <a href="Page accueil.html">Retourner à la page d'accueil</a></br></br>
-    </fieldset>
-    </form>
+    <?php
+// Se connecter à la base de données
+$conn = mysqli_connect("localhost", "nom_utilisateur", "mot_de_passe", "nom_de_la_base_de_donnees");
+
+// Vérifier la connexion
+if (!$conn) {
+    die("La connexion à la base de données a échoué : " . mysqli_connect_error());
+}
+
+// Vérifier si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // Récupérer les valeurs du formulaire
+    $nom = mysqli_real_escape_string($conn, $_POST['nom']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $mot_de_passe = mysqli_real_escape_string($conn, $_POST['mot_de_passe']);
+
+    // Vérifier si l'utilisateur existe déjà dans la base de données
+    $result = mysqli_query($conn, "SELECT * FROM utilisateurs WHERE email='$email'");
+    $count = mysqli_num_rows($result);
+
+    if ($count == 0) {
+        // Ajouter l'utilisateur à la base de données
+        $sql = "INSERT INTO utilisateurs (nom, email, mot_de_passe) VALUES ('$nom', '$email', '$mot_de_passe')";
+        
+        if (mysqli_query($conn, $sql)) {
+            echo "L'utilisateur a été ajouté avec succès à la base de données.";
+        } else {
+            echo "Une erreur s'est produite : " . mysqli_error($conn);
+        }
+    } else {
+        echo "L'utilisateur existe déjà dans la base de données.";
+    }
+}
+
+// Fermer la connexion
+mysqli_close($conn);
+?>
     </div>
 </body>
 </html>
