@@ -126,6 +126,7 @@ display: none;
   position: absolute;
   border-radius: 6px;
   -webkit-transform-style: preserve-3d;
+  align-items: center;
 }
 
 .card-back {
@@ -230,6 +231,7 @@ display: none;
 .wrapper {
   display: inline-flex;
   list-style: none;
+  left: auto;
 }
 
 .wrapper .icon {
@@ -271,7 +273,7 @@ display: none;
   width: 8px;
   background: #ffffff;
   bottom: -3px;
-  left: 50%;
+  left: auto;
   transform: translate(-50%) rotate(45deg);
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
