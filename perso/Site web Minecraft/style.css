@@ -14,6 +14,7 @@
     padding: 20px;
     border-radius: 10px;
     z-index: 1000;
+    box-shadow: 2px 2px 4px 0 rgba(21,21,21,.2);
   }
   
   .nav-item {
@@ -49,6 +50,7 @@
     transition: 5s;
     margin: 10px;
     border-radius: 20px;
+    box-shadow: 2px 2px 4px 0 rgba(21,21,21,.2);
   }
 
 main{
@@ -72,21 +74,39 @@ button{
   background-color: transparent;
    border: none;
    border-radius: 20px;
+   padding-left: 10px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   transition: all 0.5s;  
+}
+
+button:hover{
+  margin: 0;
+  transform: scale(1.1);
+  transition: all 0.5s;
+  border: none;
+}
+
+.btn{
+  background-color: transparent;
+   border: none;
    color: white;
    padding: 0;
    text-align: center;
    text-decoration: none;
    display: inline-block;
-   font-size: 50px;
-   
+   transition: all 0.5s;
+   box-shadow: 2px 2px 4px 0 rgba(21,21,21,.2);
 }
 
 .btn:hover{
-  box-shadow: 4px 4px 8px 0 rgba(21,21,21,.2);
+  box-shadow: 6px 6px 8px 0 rgba(21,21,21,.5);
   margin: 0;
   padding: 0;
   transform: scale(1.5);
-  transition: 0.5s;
+  transition: all 0.5s;
+  border: none;
 }
 
 .tooltip {
@@ -133,6 +153,7 @@ main {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(5px);
   border-radius: 20px;
+  box-shadow: 3px 3px 5px 0 rgba(21,21,21,.3);
 }
 
 
