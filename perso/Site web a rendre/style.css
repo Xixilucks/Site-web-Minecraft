@@ -66,19 +66,33 @@ body{
     margin: 0;
     padding: 0;
     align-items: center;
+    text-align: center;
 }
 
 button{
   background-color: transparent;
    border: none;
    border-radius: 20px;
-   color: white;
-   padding: 0;
+   padding-left: 10px;
    text-align: center;
    text-decoration: none;
    display: inline-block;
-   font-size: 50px;
-   
+   transition: all 0.5s; 
+   text-align: center;
+}
+
+button:hover{
+  margin: 0;
+  transform: scale(1.1);
+  transition: all 0.5s;
+  border: none;
+}
+
+.h1 {
+  font-family: 'Roboto';
+  font-size: 50px;
+  color: white;
+  text-shadow: black 4px 4px 4px;
 }
 
 .btn:hover{
@@ -113,17 +127,6 @@ button{
   visibility: visible;
 }
 
-.profil{
-  right: 100px;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 50px;
-  width: 100px;
-  height: 50px;
-  
-}
-
 main {
 	max-width: 800px;
 	margin: 0 auto;
@@ -135,6 +138,43 @@ main {
   border-radius: 20px;
 }
 
+footer {
+  background-color: transparent;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: white;
+  text-shadow: black 6px 6px 6px;
+ position: relative;
+}
 
+/* Définition de l'animation */
+@keyframes slide {
+  0% { /* état initial de l'animation */
+    transform: translateX(-100px); /* position à gauche de l'écran */
+  }
+  50% { /* état intermédiaire de l'animation */
+    transform: translateX(calc(50% - 100px)); /* position au centre de l'écran */
+  }
+  55%, 65%, 75%, 85%, 95% { /* états de rebond */
+    transform: translateX(calc(50% - 90px)); /* position légèrement décalée sur la gauche */
+  }
+  60%, 70%, 80%, 90%, 100% { /* états de rebond */
+    transform: translateX(calc(50% - 110px)); /* position légèrement décalée sur la droite */
+  }
+  100% { /* état final de l'animation */
+    transform: translateX(calc(50% - 100px)); /* position au centre de l'écran */
+  }
+}
+
+/* Application de l'animation à l'image */
+.image {
+  animation-name: slide; /* nom de l'animation */
+  animation-duration: 10s; /* durée de l'animation */
+  animation-timing-function: ease-out; /* accélération au début et ralentissement à la fin */
+  animation-iteration-count: 1; /* nombre de répétitions */
+}
 
 

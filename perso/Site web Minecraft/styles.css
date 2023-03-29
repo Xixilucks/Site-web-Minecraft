@@ -73,6 +73,7 @@ display: none;
   margin: 10px auto;
   cursor: pointer;
   background-color: #e9e9e9;
+  box-shadow: 2px 2px 4px 0 rgba(21,21,21,.2);
 }
 
 .checkbox:checked + label:before,
@@ -93,10 +94,12 @@ display: none;
   text-align: center;
   font-size: 24px;
   transition: all 0.5s ease;
+  box-shadow: 2px 2px 4px 0 rgba(21,21,21,.2);
 }
 
 .checkbox:checked + label:before {
   transform: translateX(44px) rotate(-270deg);
+  box-shadow: 2px 2px 4px 0 rgba(21,21,21,.2);
 }
 
 .card-3d-wrap {
@@ -127,6 +130,7 @@ display: none;
   border-radius: 6px;
   -webkit-transform-style: preserve-3d;
   align-items: center;
+  box-shadow: 4px 4px 6px 0 rgba(21,21,21,.2);
 }
 
 .card-back {
