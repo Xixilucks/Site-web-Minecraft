@@ -150,31 +150,27 @@ footer {
  position: relative;
 }
 
-/* Définition de l'animation */
-@keyframes slide {
-  0% { /* état initial de l'animation */
-    transform: translateX(-100px); /* position à gauche de l'écran */
+.animated-title img {
+  display: block;
+  margin: auto;
+  width: 200px; /* ajuster la largeur selon la taille de l'image */
+  animation-name: title-animation;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes title-animation {
+  0% {
+    transform: scale(1);
   }
-  50% { /* état intermédiaire de l'animation */
-    transform: translateX(calc(50% - 100px)); /* position au centre de l'écran */
+  50% {
+    transform: scale(1.2);
   }
-  55%, 65%, 75%, 85%, 95% { /* états de rebond */
-    transform: translateX(calc(50% - 90px)); /* position légèrement décalée sur la gauche */
-  }
-  60%, 70%, 80%, 90%, 100% { /* états de rebond */
-    transform: translateX(calc(50% - 110px)); /* position légèrement décalée sur la droite */
-  }
-  100% { /* état final de l'animation */
-    transform: translateX(calc(50% - 100px)); /* position au centre de l'écran */
+  100% {
+    transform: scale(1);
   }
 }
 
-/* Application de l'animation à l'image */
-.image {
-  animation-name: slide; /* nom de l'animation */
-  animation-duration: 10s; /* durée de l'animation */
-  animation-timing-function: ease-out; /* accélération au début et ralentissement à la fin */
-  animation-iteration-count: 1; /* nombre de répétitions */
-}
 
 
