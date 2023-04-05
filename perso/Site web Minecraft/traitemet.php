@@ -11,7 +11,7 @@
     <fieldset>
             <h2>Connexion réussi !!</h2>
            <p>Vous êtes désormais connecter a notre site.</p>
-           <button><a href="Page accueil 2.html">Retourner a l'accueil</a></button>
+           <button onclick="window.location.href='Page accueil 2.html'">Retourner à l'accueil</button>
      </fieldset>
     </form>
 </body>

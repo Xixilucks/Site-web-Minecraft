@@ -19,11 +19,12 @@
         
 
         h2 {
+            font-family: 'Poppins';
             text-align: center;
             font-size: 2em;
             margin-top: 0;
             margin-bottom: 20px;
-            color: white;
+            color: black;
             }
         
         body{
@@ -32,11 +33,15 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             font-family: 'Poppins';
-            background-attachment: fixed;
-            color: white;
+            background-attachment: fixed;;
             }
 
         form{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            padding: 40px;
             text-align: center;
             align-items: center;
             background-color: white;
@@ -60,10 +65,12 @@
             align-items: center;
             background-color: #cacaca;
             color: #000000;
+            border: none;
         }
 
         button:hover{  
             background-color: #000000;
             color: #cacaca;
             box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+            border: none;
             }

@@ -11,7 +11,7 @@
     <fieldset>
             <h2>Inscription réussi !!</h2>
            <p>Vous êtes désormais inscrit sur notre site.</p>
-           <button><a href="Page accueil 2.html">Retourner a l'accueil</a></button>
+           <button onclick="window.location.href='Page accueil 2.html'">Retourner à l'accueil</button>
      </fieldset>
     </form>
 </body>
