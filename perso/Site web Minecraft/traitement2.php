@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Traitement de données</title>
+    <title>Minecraft Manship Wiki</title>
     <style>
         #connexion-section {
             position: absolute;
