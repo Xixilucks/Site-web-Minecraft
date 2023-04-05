@@ -13,9 +13,6 @@
             }
 
         
-        label{
-            color: white;
-            }
         
 
         h2 {
@@ -47,6 +44,7 @@
             background-color: white;
             border-radius: 20px;
             color: #000000;
+            border: none;
         }
 
         button{  
