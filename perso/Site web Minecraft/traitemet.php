@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="tete.png" href="images/logo.jpg"/>
+    <link rel="shortcut icon" type="image/png" href="tete.png"/>
     <title>Minecraft Manship Wiki</title>
     <style>
         #connexion-section {
