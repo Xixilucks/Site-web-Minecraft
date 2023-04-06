@@ -8,42 +8,33 @@
 </head>
 <body>
 <?php
-// informations de connexion à la base de données
-$host = 'minecra0311.mysql.db'; // ou l'adresse IP du serveur MySQL
-$username = 'minecra0311'; // le nom d'utilisateur de la base de données
-$password = 'Yanis0311'; // le mot de passe de la base de données
-$dbname = 'minecra0311'; // le nom de la base de données
+// Connexion à la base de données
+$dsn = "mysql:host=minecra0311.mysql.db;dbname=minecra0311";
+$user = "minecra0311";
+$password = "Yanis0311";
+$pdo = new PDO($dsn, $user, $password);
 
-// établir la connexion à la base de données
-$conn = mysqli_connect($host, $username, $password, $dbname);
-
-// vérifier si la connexion est établie
-if (!$conn) {
-    die("La connexion a échoué : " . mysqli_connect_error());
-}
-
-// vérifier si le formulaire a été soumis
-if (isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
-    // récupérer les informations de connexion depuis le formulaire
+// Vérification si le formulaire est soumis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Récupération des informations du formulaire
     $email = $_POST['email'];
     $password = $_POST['mot_de_passe'];
-    
-    // requête SQL pour vérifier si les informations sont correctes
-    $sql = "SELECT * FROM utilisateurs WHERE email = '$email' AND mot_de_passe = '$password'";
-    $result = mysqli_query($conn, $sql);
-    
-    // vérifier si la requête a renvoyé un résultat
-    if (mysqli_num_rows($result) > 0) {
-        // redirection vers la page de succès
+
+    // Requête pour vérifier si l'email et le mot de passe sont présents dans la table "utilisateurs"
+    $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = :email AND password = :password");
+    $stmt->execute(['email' => $email, 'mot_de_passe' => $password]);
+    $utilisateur = $stmt->fetch();
+
+    if ($utilisateur) {
+        // Si l'utilisateur est trouvé dans la base de données, redirection vers une autre page HTML
         header('Location: Page accueil 2.html');
+        exit;
     } else {
-        // redirection vers la page de connexion
+        // Si l'utilisateur n'est pas trouvé dans la base de données, redirection vers la page de connexion HTML
         header('Location: login.html');
+        exit;
     }
 }
-
-// fermer la connexion à la base de données
-mysqli_close($conn);
 ?>
 </body>
 </html>

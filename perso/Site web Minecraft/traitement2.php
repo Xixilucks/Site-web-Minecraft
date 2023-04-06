@@ -9,40 +9,38 @@
 <body>
 <?php
 
-// Les informations de connexion à la base de données
-$servername = "minecra0311.mysql.db"; // Le nom de votre serveur
-$username = "minecra0311"; // Le nom d'utilisateur de votre base de données
-$password = "Yanis0311"; // Le mot de passe de votre base de données
-$dbname = "minecra0311"; // Le nom de votre base de données
-$conn = new mysqli($host, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("La connexion à la base de données a échoué: " . $conn->connect_error);
-}
-
 // Récupération des données du formulaire
-$email = $_POST["email"];
-$mdp = $_POST["mot_de_passe"];
-$pseudo = $_POST["pseudo"];
+$pseudo = $_POST['pseudo'];
+$mail = $_POST['mail'];
+$mot_de_passe = $_POST['mot_de_passe'];
 
-// Vérification de l'existence de l'email et du pseudo dans la table "utilisateurs"
-$sql = "SELECT * FROM utilisateurs WHERE email='$email' OR pseudo='$pseudo'";
-$result = $conn->query($sql);
+// Connexion à la base de données
+$servername = "minecra0311.mysql.db";
+$username = "minecra0311";
+$password = "Yanis0311";
+$dbname = "minecra0311";
 
-// Si l'email est trouvé, redirige vers la page de connexion
-if ($result->num_rows > 0) {
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Vérification si l'utilisateur est déjà dans la base de données
+$sql = "SELECT * FROM utilisateurs WHERE pseudo='$pseudo' OR mail='$mail'";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    // L'utilisateur est déjà dans la base de données, redirection vers la page de connexion
     header("Location: login.html");
-} 
-// Si ni l'email ni le pseudo ne sont trouvés, ajoute les données dans la table "utilisateurs" et redirige vers une autre page
-else {
-    $sql = "INSERT INTO utilisateurs (email, mot_de_passe, pseudo) VALUES ('$email', '$mdp', '$pseudo')";
-    if ($conn->query($sql) === TRUE) {
-        header("Location: Page accueil 2.html");
-    } else {
-        echo "Erreur: " . $sql . "<br>" . $conn->error;
-    }
+} else {
+    // Ajout de l'utilisateur dans la base de données
+    $sql = "INSERT INTO utilisateurs (pseudo, mail, mot_de_passe) VALUES ('$pseudo', '$mail', '$mot_de_passe')";
+    mysqli_query($conn, $sql);
+
+    // Redirection vers une autre page
+    header("Location: Page accueil 2.html");
 }
 
-$conn->close();
+// Fermeture de la connexion à la base de données
+mysqli_close($conn);
+
 ?>
 </body>
 </html>
