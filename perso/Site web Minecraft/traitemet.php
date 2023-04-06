@@ -8,25 +8,39 @@
 </head>
 <body>
 <?php
-// Récupération des informations du formulaire
-$email = $_POST['email'];
-$password = $_POST['password'];
 
 // Connexion à la base de données
-$conn = mysqli_connect('minecra0311.mysql.db', 'minecra0311', 'Yanis0311', 'minecra0311');
+$servername = "minecra0311.mysql.db";
+$username = "minecra0311";
+$password = "Yanis0311";
+$dbname = "minecra0311";
 
-// Vérification de l'adresse e-mail dans la base de données
-$result = mysqli_query($conn, "SELECT * FROM utilisateurs WHERE email = '$email'");
-if (mysqli_num_rows($result) > 0) {
-    // L'adresse e-mail existe dans la base de données, rediriger l'utilisateur vers une autre page HTML
-    header('Location: Page accueil 2.html');
-} else {
-    // L'adresse e-mail n'existe pas dans la base de données, rediriger l'utilisateur vers la page de connexion HTML
-    header('Location: login.html');
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérification de la connexion
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Fermeture de la connexion à la base de données
-mysqli_close($conn);
+// Récupération des données du formulaire
+$email = $_POST["email"];
+$password = $_POST["mot_de_passe"];
+
+// Requête pour vérifier si l'utilisateur existe dans la base de données
+$sql = "SELECT * FROM users WHERE email='$email' AND mot_de_passe='$password'";
+$result = $conn->query($sql);
+
+// Vérification du résultat de la requête
+if ($result->num_rows == 1) {
+    // Redirection vers la page de succès
+    header("Location: Page accueil 2.html");
+} else {
+    // Redirection vers la page de connexion
+    header("Location: login.html");
+}
+
+$conn->close();
+
 ?>
 </body>
 </html>
