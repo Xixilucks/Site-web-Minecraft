@@ -7,13 +7,27 @@
     <link rel="stylesheet" href="styless.css">
 </head>
 <body>
-   <form>
-    <fieldset>
-            <h2>Connexion réussi !!</h2>
-           <p>Vous êtes désormais connecter a notre site.</p>
-           <button onclick="window.location.href='Page accueil 2.html'">Retourner à l'accueil</button>
-     </fieldset>
-    </form>
+<?php
+// Récupération des informations du formulaire
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+// Connexion à la base de données
+$conn = mysqli_connect('minecra0311.mysql.db', 'minecra0311', 'Yanis0311', 'minecra0311');
+
+// Vérification de l'adresse e-mail dans la base de données
+$result = mysqli_query($conn, "SELECT * FROM utilisateurs WHERE email = '$email'");
+if (mysqli_num_rows($result) > 0) {
+    // L'adresse e-mail existe dans la base de données, rediriger l'utilisateur vers une autre page HTML
+    header('Location: Page accueil 2.html');
+} else {
+    // L'adresse e-mail n'existe pas dans la base de données, rediriger l'utilisateur vers la page de connexion HTML
+    header('Location: login.html');
+}
+
+// Fermeture de la connexion à la base de données
+mysqli_close($conn);
+?>
 </body>
 </html>
     
