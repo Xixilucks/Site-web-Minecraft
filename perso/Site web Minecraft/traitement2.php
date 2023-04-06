@@ -15,7 +15,7 @@ $mail = $_POST['mail'];
 $mot_de_passe = $_POST['mot_de_passe'];
 
 // Connexion à la base de données
-$servername = "minecra0311.mysql.db";
+$servername = "https://phpmyadmin.cluster029.hosting.ovh.net/";
 $username = "minecra0311";
 $password = "Yanis0311";
 $dbname = "minecra0311";
