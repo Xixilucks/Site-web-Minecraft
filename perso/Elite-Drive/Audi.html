@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Location de voitures de luxe</title>
-    link rel="shortcut icon" type="image/png" href="ressources/logo2.jpg"/>
+<html lang="en"> 
+<head>
+	<link rel="shortcut icon" type="image/png" href="ressources/logo2.jpg"/>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Auto-Loc</title>
+    <title>Elite-Drive</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,6 +17,32 @@
     <meta name="description" content="Louez une voiture de luxe pour votre prochain voyage.">
     <meta name="keywords" content="Location, voiture, luxe.">
     <meta name="author" content="Xixiluck">
-    
-  </head>
+</head>
+<body>
+    <div class="slide-container">
+      <div class="custom-slider fade">
+        <div class="slide-index">1 / 3</div>
+        <img class="slide-img" src="ressources/Audi.jpg">
+        <div class="slide-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+      </div>
+      <div class="custom-slider fade">
+        <div class="slide-index">2 / 3</div>
+        <img class="slide-img" src="ressources/Audi2.jpg">
+        <div class="slide-text">Nullam luctus aliquam ornare. </div>
+      </div>
+      <div class="custom-slider fade">
+        <div class="slide-index">3 / 3</div>
+        <img class="slide-img" src="ressources/Audi3.jpg">
+        <div class="slide-text">Praesent lobortis libero sed egestas suscipit.</div>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div class="slide-dot">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+  </body>
 </html>
