@@ -1,81 +1,68 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <title>Webleb</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-	<div class="section">
-		<div class="container">
-			<div class="row full-height justify-content-center">
-				<div class="col-12 text-center align-self-center py-5">
-					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+<h1>Laissez un avis</h1>
 
-						<h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
-			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
-			          	<label for="reg-log"></label>
+<div class="fb-comments" data-href="URL_DE_VOTRE_PAGE" data-numposts="5" data-width="100%"></div>
 
-						<div class="card-3d-wrap mx-auto">
-							<div class="card-3d-wrapper">
-								<div class="card-front">
-									<div class="center-wrap">
-										<div class="section text-center">
+<form id="formulaire" action="#" method="post" class="form">
+  <label for="nom">Pseudo :</label>
+  <input type="text" id="nom" name="nom" placeholder="Votre nom" required></br></br>
 
-                                            <form action="#" method="post">
-											<h4 class="mb-4 pb-3">Log In</h4>
-											<div class="form-group">
-												<input type="email" class="form-style" placeholder="Email" id="email" required="@">
-												<i class="input-icon uil uil-at"></i>
-											</div>	
-											<div class="form-group mt-2">
-												<input type="password" class="form-style" placeholder="Password" id="password">
-												<i class="input-icon uil uil-lock-alt"></i>
-											</div>
-											<button type="submit" class="btn mt-4">Login</button>
-                      <p class="mb-0 mt-4 text-center"><a href="#" class="link">Forgot your password?</a></p>
-                                            </form>
+  <label for="note">Nombre d'étoiles ( 1 à 5 ) :</label>
+  <input type="number" id="note" name="note" placeholder="Votre note" required></br></br>
 
-				      					</div>
-			      					</div>
-			      				</div>
-                                
-								<div class="card-back">
-									<div class="center-wrap">
-										<div class="section text-center">
+  <label for="commentaire">Commentaire :</label>
+  <textarea id="commentaire" name="commentaire" placeholder="Votre commentaire" required></textarea></br></br>
 
-                                            <form action="#" method="post">
-											<h4 class="mb-3 pb-3">Sign Up</h4>
-											<div class="form-group">
-												<input type="text" class="form-style" placeholder="Full Name" id="name">
-												<i class="input-icon uil uil-user"></i>
-											</div>	
-											<div class="form-group mt-2">
-												<input type="tel" class="form-style" placeholder="Phone Number" id="phone">
-												<i class="input-icon uil uil-phone"></i>
-											</div>	
-                                          <div class="form-group mt-2">
-												<input type="email" class="form-style" placeholder="Email" id="email" required="@">
-												<i class="input-icon uil uil-at"></i>
-											</div>
-											<div class="form-group mt-2">
-												<input type="password" class="form-style" placeholder="Password" id="password">
-												<i class="input-icon uil uil-lock-alt"></i>
-											</div>
-											<button type="submit" class="btn mt-4">Register</button>
-                                            </form>
-				      					</div>
-			      					</div>
-			      				</div>
-			      			</div>
-			      		</div>
-			      	</div>
-		      	</div>
-	      	</div>
-	    </div>
-	</div>
-</body>
-</html>
+  <input type="submit" value="Envoyer">
+</form>
+
+
+
+<script>
+  // Récupérer le formulaire et la liste
+  const formulaire = document.querySelector('#formulaire');
+  const liste = document.querySelector('#liste');
+
+  // Écouter l'événement "submit" du formulaire
+  formulaire.addEventListener('submit', (event) => {
+    // Empêcher le comportement par défaut du formulaire
+    event.preventDefault();
+
+    // Récupérer les valeurs des champs du formulaire
+    const nom = document.querySelector('#nom').value;
+    const note = document.querySelector('#note').value;
+    const commentaire = document.querySelector('#commentaire').value;
+
+    // Créer un nouvel élément "li" pour afficher les informations du commentaire
+    const nouvelAvis = document.createElement('li');
+
+    // Ajouter les informations du commentaire dans le nouvel élément "li"
+    nouvelAvis.innerHTML = `
+      <h3>${nom} (${note} étoile${note > 1 ? 's' : ''})</h3>
+      <p>${commentaire}</p>
+    `;
+
+    // Ajouter le nouvel élément "li" à la liste d'avis
+    liste.appendChild(nouvelAvis);
+
+    // Réinitialiser les champs du formulaire
+    formulaire.reset();
+  });
+
+  // Charger les commentaires depuis Facebook
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : 'VOTRE_ID_D_APPLICATION',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v12.0'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
